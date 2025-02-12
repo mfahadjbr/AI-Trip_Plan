@@ -31,7 +31,7 @@ Employees/Experts to hire:
 -Local Travel Agent 
 
 Notes:
-- Agents should be results driven and have a clear goal in mind
+- Agents should be results driven and have is a clear goal in mind
 - Role is their job title
 - Goals should actionable
 - Backstory should be their resume
