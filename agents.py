@@ -49,14 +49,14 @@ Notes:
 
 class TravelAgents:
     def __init__(self):
-        google_api_key = os.getenv("GEMINI_API_KEY")  # Ensure API key is set in the environment
+        gemini_api_key = os.getenv("GEMINI_API_KEY")  # Ensure API key is set in the environment
 
         self.OpenAIGPT35 = LLM(
-            model="gemini/gemini-2.0-flash-exp", temperature=0.7, api_key="AIzaSyCMU3iF0KNaM8vp83_lfXnkycYGV-tKVsM",
+            model="gemini/gemini-2.0-flash-exp", temperature=0.7, api_key="AIzaSyCFHSD0SugZ-jIou6aO80f-o3HRQYh8-nw",
 
         )
         self.OpenAIGPT4 = LLM(
-            model="gemini/gemini-2.0-flash-exp", temperature=0.7, api_key="AIzaSyCMU3iF0KNaM8vp83_lfXnkycYGV-tKVsM",
+            model="gemini/gemini-2.0-flash-exp", temperature=0.7, api_key="AIzaSyCFHSD0SugZ-jIou6aO80f-o3HRQYh8-nw",
 
         )
 
@@ -72,8 +72,7 @@ class TravelAgents:
                               i have decades of experience making travel Trips  """),
             goal=dedent(f"""Create a 7-day Trip with detailed per-day plans,
                         include budget , packing suggestions and safety requirements"""),
-            tools=[SearchTools.search_internet,
-                   CalculatorTools.calculate],
+            tools=[SearchTools.search_internet,CalculatorTools.calculate],
             verbose=True,
             llm=self.OpenAIGPT35,
         )
@@ -83,8 +82,8 @@ class TravelAgents:
             role="city_selection_expert",
             backstory=dedent(f"""Expert at analyzing travel data to pick ideal destinations"""),
             goal=dedent(f""" Select the best cities based on weather ,  season , prices , and traveler  interest"""),
-            tools=[SearchTools.search_internet,
-                   ],            verbose=True,
+            tools=[SearchTools.search_internet],
+            verbose=True,
             llm=self.OpenAIGPT35,
         )
     
@@ -93,7 +92,8 @@ class TravelAgents:
             role="Local_tour_guide",
             backstory=dedent(f"""Knowledge local guide with extensive information about the city , its attractions and customs"""),
             goal=dedent(f""" Provide the best insights about the selected city """),
-            tools=[SearchTools.search_internet,],            verbose=True,
+            tools=[SearchTools.search_internet],
+            verbose=True,
             llm=self.OpenAIGPT35,
         )
 
