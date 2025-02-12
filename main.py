@@ -32,7 +32,7 @@ st.markdown(
 
 # Main Title
 st.title("🌍 AI-Powered Trip Planner")
-st.subheader("Plan your dream trip effortlessly with AI!")
+st.subheader("Plan your Dream trip Effortlessly with AI!")
 
 class TripCrew:
     def __init__(self, origin, cities, date_range, interests):
